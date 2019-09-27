@@ -20,13 +20,13 @@ class PinboardAdapter(private val context: AppCompatActivity, private val listPi
     }
 
     override fun onBindViewHolder(holder: PinboardItemViewHolder, position: Int) {
-        val fleetItem = listPinboardItem[position]
+        val pinboardItem = listPinboardItem[position]
 
-        if(fleetItem.color.trim() != ""){
-            holder.imgPinboard.setBackgroundColor(Color.parseColor(fleetItem.color))
+        if(pinboardItem.color.trim() != ""){
+            holder.imgPinboard.setBackgroundColor(Color.parseColor(pinboardItem.color))
         }
 
-        FlashDownloader.loadImageFrom(context,fleetItem.urlRegular)
+        FlashDownloader.loadImageFrom(context,pinboardItem.urlRegular)
             .loadInto {
                 holder.imgPinboard.setImageBitmap(it)
             }
